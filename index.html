@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- bootstrap 4 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <!-- fontawesome -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <title>Biên bản cân xe</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="mt-5 text-center">PHẦN MỀM IN BIÊN BẢN CÂN XE</h1>
+        <form id="formBienBan" name="formBienBan">
+            <fieldset class="border p-3 my-5">
+                <legend class="w-auto">Người lập biên bản</legend>
+                <div class="row">
+                    <div class="col">
+                        <label for="trucCa">Trực ca sản xuất</label>
+                        <select onchange="checkTrucCa()" class="form-control" id="trucCa">
+                            <option value="lct">Lê Công Tùng</option>
+                            <option value="nqc">Nguyễn Quốc Công</option>
+                            <option value="ntt">Nguyễn Tấn Trung</option>
+                            <option value="hhc">Hứa Huy Cường</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <label for="thuMua">Phụ trách thu mua</label>
+                        <input disabled type="text" class="form-control" id="thuMua">
+                    </div>
+                    <div class="col">
+                        <label for="can">Cân xe</label>
+                        <select class="form-control" id="can">
+                            <option value="dp">Đặng Hữu Pháp</option>
+                            <option value="nt">Nguyễn Xuân Thanh Tùng</option>
+                            <option value="lt">Lữ Thanh Tùng</option>
+                            <option value="qb">Lê Quang Bình</option>
+                            <option value="qs">Nguyễn Quốc Sinh</option>
+                            <option value="qt">Nguyễn Quyết Thịnh</option>
+                            <option value="tt">Lê Thế Thông</option>
+                            <option value="vd">Vũ Đạt</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <label for="kcs">KCS</label>
+                        <select class="form-control" id="kcs">
+                            <option value="nt">Nguyễn Xuân Thanh Tùng</option>
+                            <option value="lt">Lữ Thanh Tùng</option>
+                            <option value="dp">Đặng Hữu Pháp</option>
+                            <option value="qb">Lê Quang Bình</option>
+                            <option value="qs">Nguyễn Quốc Sinh</option>
+                            <option value="qt">Nguyễn Quyết Thịnh</option>
+                            <option value="tt">Lê Thế Thông</option>
+                            <option value="vd">Vũ Đạt</option>
+                        </select>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset class="border p-3 my-5">
+                <legend class="w-auto">Thông tin phiếu nhập</legend>
+                <div class="row">
+                    <div class="col">
+                        <label for="soXe">Biển số xe</label>
+                        <input type="text" class="form-control" id="soXe" name="soXe" placeholder="Nhập biển số xe">
+                        <small id="checkSoXe" class="text-danger hidden">Biển số xe không được để trống</small>
+                    </div>
+                    <div class="col">
+                        <label for="soPhieu">Số phiếu nhập hàng</label>
+                        <input type="number" class="form-control" id="soPhieu" placeholder="Nhập số phiếu">
+                        <small id="checkSoPhieu" class="text-danger hidden">Số phiếu không được để trống</small>
+                    </div>
+                    <div class="col">
+                        <label for="canVao">Ngày giờ cân vào</label>
+                        <input class="form-control" type="datetime-local" id="canVao" name="canVao">
+                        <small id="checkNgayGioVao" class="text-danger hidden">Ngày giờ cân vào không được để trống</small>
+                    </div>
+                    <div class="col">
+                        <label for="canRa">Ngày giờ cân ra</label>
+                        <input class="form-control" type="datetime-local" id="canRa" name="canRa">
+                        <small id="checkNgayGioRa" class="text-danger hidden">Ngày giờ cân ra không được để trống</small>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col">
+                        <label for="tLXeVaHang">Trọng lượng xe và hàng (kg)</label>
+                        <input type="number" class="form-control" id="tLXeVaHang"
+                            placeholder="Nhập trọng lượng xe và hàng">
+                        <small id="checkTLFull" class="text-danger hidden">Trọng lượng xe và hàng không được để trống</small>
+                    </div>
+                    <div class="col">
+                        <label for="tLXe">Trọng lượng xe (kg)</label>
+                        <input type="number" class="form-control" id="tLXe" placeholder="Nhập trọng lượng xe">
+                        <small id="checkTLXe" class="text-danger hidden">Trọng lượng xe không được để trống</small>
+                    </div>
+                    <div class="col">
+                        <label for="chungLoai">Chủng loại hàng</label>
+                        <select onchange="checkTrucCa(); getFormValues();" class="form-control" id="chungLoai">
+                            <option value="kdl">Gỗ keo Đại Lộc</option>
+                            <option value="kdx">Gỗ keo QSơn-NS-DX</option>
+                            <option value="khn">Gỗ keo Hà Nha-Nam Giang</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <label for="lyDo">Lý do lập biên bản</label>
+                        <select class="form-control" id="lyDo">
+                            <option value="qch">Quên chụp hình</option>
+                            <option value="hcm">Hình chụp bị mờ</option>
+                            <option value="skv">Chụp hình sai khu vực</option>
+                        </select>
+                    </div>
+                </div>
+            </fieldset>
+            <div class="text-right">
+                <button id="xemBienBan" type="button" onclick="bindingData()" class="btn btn-info" data-toggle="modal" data-target="#modalBienBan">Xem biên bản</button>
+            </div>
+        </form>
+
+        <!-- modal Biên bản -->
+        <div class="modal fade" id="modalBienBan" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="false">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Biên bản cân xe</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div id="noiDung" class="modal-body ml-5">
+                        <div class="text-center">
+                            <p><b>Cộng hòa xã hội chủ nghĩa Việt Nam</b></p>
+                            <p><b>Độc lập - Tự do - Hạnh phúc</b></p>
+                        </div>
+                        <br />
+                        <div class="text-center">
+                            <h2>BIÊN BẢN XÁC NHẬN CHỦNG LOẠI KEO NHẬP</h2>
+                            <p><i>(V/v xe <span class="soXe"></span> <span class="loi"></span>)</i></p>
+                        </div>
+                        <br />
+                        <p class="thutVao">Hôm nay vào lúc <span class="gioVao"></span>h<span class="phutVao"></span> ngày <span
+                                class="ngayVao"></span> tháng <span class="thangVao"></span> năm <span
+                                class="namVao"></span> tại Công ty TNHH Sản xuất Nguyên liệu giấy Việt-Nhật.</p>
+                        <p><b>Chúng tôi gồm có:</b></p>
+                        <ul>
+                            <li>Ông: <span class="showTrucCa display-name"></span><span id="chucVu">Trực ca sản
+                                    xuất</span></li>
+                            <li id="thuMuaLI">Ông: <span class="showThuMua display-name"></span><span>Phục trách thu
+                                    mua</span></li>
+                            <li>Ông: <span class="showKCS display-name"></span><span>KCS</span></li>
+                            <li>Ông: <span class="showCanxe display-name"></span><span>Cân xe</span></li>
+                        </ul>
+                        <p class="thutVao">Vào ngày <span class="ngayVao"></span>/<span class="thangVao"></span>/<span
+                                class="namVao"></span> xe <span class="soXe"></span> bốc gỗ tại khu vực <span
+                                id="khuVuc"></span> về nhập gỗ cho công ty ViJaChip. <span id="chiTietLyDo"></span>. Để
+                            giữ khách hàng và được sự chỉ đạo của Ban Điều Hành - Ban Quản Đốc, chúng tôi lập biên bản
+                            xác nhận xe này được nhập chủng loại <span id="chungLoaiDisplay"></span>.</p>
+                        <p>Chi tiết phiếu nhập hàng như sau:</p>
+                        <table class="table table-borderless">
+                            <tbody>
+                                <tr>
+                                    <td class="thutVao" id="showSoPhieu"></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class="thutVao">Ngày giờ cân vào: <span class="ngayVao"></span>/<span
+                                            class="thangVao"></span>/<span class="namVao"></span> <span
+                                            class="gioVao"></span>:<span class="phutVao"></span></td>
+                                    <td></td>
+                                    <td>Ngày giờ cân ra: <span id="ngayRa"></span>/<span id="thangRa"></span>/<span
+                                            id="namRa"></span> <span id="gioRa"></span>:<span id="phutRa"></span></td>
+                                </tr>
+                                <tr>
+                                    <td class="thutVao">Trọng lượng xe và hàng: </td>
+                                    <td id="showTLFull" class="text-right"></td>
+                                    <td>kg</td>
+                                </tr>
+                                <tr>
+                                    <td class="thutVao">Trọng lượng xe: </td>
+                                    <td id="showTLXe" class="text-right"></td>
+                                    <td>kg</td>
+                                </tr>
+                                <tr>
+                                    <td class="thutVao">Trọng lượng hàng: </td>
+                                    <td id="showTLHang" class="text-right"></td>
+                                    <td>kg</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="thutVao">Chúng tôi lập biên bản này để làm cơ sở lưu chứng từ.</p>
+
+                        <p class="text-right"><i>Đà Nẵng, ngày <span class="ngayVao"></span> tháng <span class="thangVao"></span> năm <span class="namVao"></span></i></p>
+                        <div>
+                            <div class="d-flex justify-content-around text-center">
+                                <span id="trucCaFooterTren" class="w-25">Trực ca sản xuất</span>
+                                <span id="thuMuaFooterTren" class="w-25">Phụ trách thu mua</span>
+                                <span class="w-25">KCS</span>
+                                <span class="w-25">Cân</span>
+                            </div>
+                            <br /> <br /> <br />
+                            <div class="d-flex justify-content-around text-center">
+                                <span id="trucCaFooterDuoi" class="w-25 showTrucCa"></span>
+                                <span id="thuMuaFooterDuoi" class="w-25 showThuMua"></span>
+                                <span class="w-25 showKCS"></span>
+                                <span class="w-25 showCanxe"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                        <button onclick="inBienBan()" type="button" class="btn btn-primary">In biên bản</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+        crossorigin="anonymous"></script>
+
+    <!-- momentjs -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"
+        integrity="sha512-CryKbMe7sjSCDPl18jtJI5DR5jtkUWxPXWaLCst6QjH8wxDexfRJic2WRmRXmstr2Y8SxDDWuBO6CQC6IE4KTA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script type="text/javascript" src="./main.js"></script>
+</body>
+
+</html>

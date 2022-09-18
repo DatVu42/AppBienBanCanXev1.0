@@ -1,0 +1,36 @@
+* {
+    line-height: 1.6;
+    font-size: 20px;
+}
+
+.thutVao {
+    text-indent: 40px;
+}
+
+.display-name {
+    display: inline-block;
+    width: 300px;
+}
+
+li {
+    list-style-type: disc;
+}
+
+@media print {
+
+    #formBienBan,
+    h1,
+    .modal-header,
+    .modal-footer {
+        display: none;
+    }
+
+    .modal-xl {
+        max-width: 100%;
+    }
+
+    #noiDung {
+        border: none;
+        outline: none;
+    }
+}
