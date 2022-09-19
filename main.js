@@ -172,7 +172,7 @@ function checkTrucCa() {
         getELE('trucCaFooterDuoi').classList.remove('w-50');
     }
 }
-checkTrucCa();
+// checkTrucCa();
 
 function timKhuVuc(maChungLoai) {
     switch (maChungLoai) {
