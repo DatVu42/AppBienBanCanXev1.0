@@ -37,8 +37,6 @@ let khuVuc = '';
 let maLyDo = '';
 let chiTietLyDo = '';
 
-// let isValid = false;
-
 function getELE(id) {
     return document.getElementById(id);
 }
@@ -92,51 +90,51 @@ function validationForm() {
     getELE('xemBienBan').removeAttribute('data-target');
 
     if (bienSoXe === '') {
-        getELE('checkSoXe').classList.remove('hidden');
+        getELE('checkSoXe').removeAttribute('hidden');
         getELE('soXe').focus();
         return false;
     } else {
-        getELE('checkSoXe').classList.add('hidden');
+        getELE('checkSoXe').setAttribute('hidden', '');
     }
 
     if (soPhieu === '') {
-        getELE('checkSoPhieu').classList.remove('hidden');
+        getELE('checkSoPhieu').removeAttribute('hidden');
         getELE('soPhieu').focus();
         return false;
     } else {
-        getELE('checkSoPhieu').classList.add('hidden');
+        getELE('checkSoPhieu').setAttribute('hidden', '');
     }
 
     if (canVao === '') {
-        getELE('checkNgayGioVao').classList.remove('hidden');
+        getELE('checkNgayGioVao').removeAttribute('hidden');
         getELE('canVao').focus();
         return false;
     } else {
-        getELE('checkNgayGioVao').classList.add('hidden');
+        getELE('checkNgayGioVao').setAttribute('hidden', '');
     }
 
     if (canRa === '') {
-        getELE('checkNgayGioRa').classList.remove('hidden');
+        getELE('checkNgayGioRa').removeAttribute('hidden');
         getELE('canRa').focus();
         return false;
     } else {
-        getELE('checkNgayGioRa').classList.add('hidden');
+        getELE('checkNgayGioRa').setAttribute('hidden', '');
     }
 
     if (tLFull === '') {
-        getELE('checkTLFull').classList.remove('hidden');
+        getELE('checkTLFull').removeAttribute('hidden');
         getELE('tLXeVaHang').focus();
         return false;
     } else {
-        getELE('checkTLFull').classList.add('hidden');
+        getELE('checkTLFull').setAttribute('hidden', '');
     }
 
     if (tLXe === '') {
-        getELE('checkTLXe').classList.remove('hidden');
+        getELE('checkTLXe').removeAttribute('hidden');
         getELE('tLXe').focus();
         return false;
     } else {
-        getELE('checkTLXe').classList.add('hidden');
+        getELE('checkTLXe').setAttribute('hidden', '');
     }
 
     getELE('xemBienBan').setAttribute('data-target', '#modalBienBan');
@@ -206,7 +204,7 @@ function timLyDo(maLyDo, maChungLoai) {
             break;
 
         default:
-            chiTietLyDo = `Xe này tài xế chạy vội nên qua ${maChungLoai === 'kdl' ? 'Duy Xuyên' : 'Đại Lộc'} mới chụp hình`;
+            chiTietLyDo = `Xe này tài xế chạy vội nên qua địa phận ${maChungLoai === 'kdl' ? 'Duy Xuyên' : 'Đại Lộc'} mới chụp hình`;
             break;
     }
 }
