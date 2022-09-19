@@ -16,6 +16,10 @@ li {
     list-style-type: disc;
 }
 
+.w-20 {
+    width: 20%;
+}
+
 @media print {
 
     #formBienBan,

@@ -1,6 +1,7 @@
 let trucCaELE = '';
 let trucCaText = '';
-let thuMuaELE = '';
+let thuMuaVjc = 'Lê Công Tùng';
+let thuMuaVnf = 'Lê Thanh Long';
 let canXeELE = '';
 let canXeText = '';
 let kcsELE = '';
@@ -27,7 +28,8 @@ let lyDoELE = '';
 let lyDoText = '';
 
 let chucVuELE = '';
-let thuMuaLI = '';
+let thuMuaVjcLI = '';
+let thuMuaVnfLI = '';
 
 let maChungLoai = '';
 let khuVuc = '';
@@ -35,7 +37,7 @@ let khuVuc = '';
 let maLyDo = '';
 let chiTietLyDo = '';
 
-let isValid = false;
+// let isValid = false;
 
 function getELE(id) {
     return document.getElementById(id);
@@ -44,7 +46,7 @@ function getELE(id) {
 function getFormValues() {
     trucCaELE = document.getElementById('trucCa');
     trucCaText = trucCaELE.options[trucCaELE.selectedIndex].text;
-    thuMuaELE = document.getElementById('thuMua');
+
     canXeELE = document.getElementById('can');
     canXeText = canXeELE.options[canXeELE.selectedIndex].text;
     kcsELE = document.getElementById('kcs');
@@ -76,7 +78,8 @@ function getFormValues() {
     phutCanRa = dateRa.getMinutes();
 
     chucVuELE = document.getElementById('chucVu');
-    thuMuaLI = document.getElementById('thuMuaLI');
+    thuMuaVjcLI = document.getElementById('thuMuaVjcLI');
+    thuMuaVnfLI = document.getElementById('thuMuaVnfLI');
 
     maChungLoai = chungLoaiELE.options[chungLoaiELE.selectedIndex].value;
     timKhuVuc(maChungLoai);
@@ -143,36 +146,40 @@ function validationForm() {
 function checkTrucCa() {
     getFormValues();
 
-    if (chungLoaiELE.value === 'kdx') {
-        thuMuaELE.value = 'Lê Thanh Long';
-        getELE('thuMuaFooterTren').removeAttribute('hidden');
-        getELE('thuMuaFooterDuoi').removeAttribute('hidden');
-    } else {
-        thuMuaELE.value = 'Lê Công Tùng';
-        getELE('thuMuaFooterTren').setAttribute('hidden', '');
-        getELE('thuMuaFooterDuoi').setAttribute('hidden', '');
-    }
-
-    if (trucCaELE.value === 'lct' && chungLoaiELE.value !== 'kdx') {
-        chucVuELE.innerHTML = 'Trực ca sản xuất & Phụ trách thu mua';
-        thuMuaLI.setAttribute('hidden', '');
-        getELE('trucCaFooterTren').innerHTML = 'Trực ca sản xuất & Phụ trách thu mua';
-        getELE('thuMuaFooterTren').setAttribute('hidden', '');
-        getELE('thuMuaFooterDuoi').setAttribute('hidden', '');
-        getELE('trucCaFooterTren').classList.add('w-50');
-        getELE('trucCaFooterDuoi').classList.add('w-50');
+    if (trucCaELE.value === 'lct') {
+        chucVuELE.innerHTML = 'Trực ca sản xuất & Phụ trách thu mua VJC';
+        thuMuaVjcLI.setAttribute('hidden', '');
+        getELE('trucCaFooterTitle').innerHTML = 'Trực ca SX & PT thu mua VJC';
+        getELE('thuMuaVjcFooterTitle').setAttribute('hidden', '');
+        getELE('thuMuaVjcFooterName').setAttribute('hidden', '');
+        // getELE('trucCaFooterTren').classList.add('w-50');
+        // getELE('trucCaFooterDuoi').classList.add('w-50');
 
     } else {
         chucVuELE.innerHTML = 'Trực ca sản xuất';
-        thuMuaLI.removeAttribute('hidden');
-        getELE('trucCaFooterTren').innerHTML = 'Trực ca sản xuất';
-        getELE('thuMuaFooterTren').removeAttribute('hidden');
-        getELE('thuMuaFooterDuoi').removeAttribute('hidden');
-        getELE('trucCaFooterTren').classList.remove('w-50');
-        getELE('trucCaFooterDuoi').classList.remove('w-50');
+        thuMuaVjcLI.removeAttribute('hidden');
+        getELE('trucCaFooterTitle').innerHTML = 'Trực ca sản xuất';
+        getELE('thuMuaVjcFooterTitle').removeAttribute('hidden');
+        getELE('thuMuaVjcFooterName').removeAttribute('hidden');
+        // getELE('trucCaFooterTren').classList.remove('w-50');
+        // getELE('trucCaFooterDuoi').classList.remove('w-50');
     }
 }
 checkTrucCa();
+
+function toogleThuMuaVnf() {
+    getFormValues();
+
+    if (chungLoaiELE.value !== 'kdx') {
+        getELE('thuMuaVnfLI').setAttribute('hidden', '')
+        getELE('thuMuaVnfFooterTitle').setAttribute('hidden', '');
+        getELE('thuMuaVnfFooterName').setAttribute('hidden', '');
+    } else {
+        getELE('thuMuaVnfLI').removeAttribute('hidden')
+        getELE('thuMuaVnfFooterTitle').removeAttribute('hidden');
+        getELE('thuMuaVnfFooterName').removeAttribute('hidden');
+    }
+}
 
 function timKhuVuc(maChungLoai) {
     switch (maChungLoai) {
@@ -206,6 +213,7 @@ function timLyDo(maLyDo, maChungLoai) {
 
 function bindingData() {
     getFormValues();
+    toogleThuMuaVnf();
     validationForm();
     console.log('chạy hàm này');
     const soXeList = document.querySelectorAll('.soXe');
@@ -256,9 +264,14 @@ function bindingData() {
         trucCaList[i].innerHTML = trucCaText;
     }
 
-    const thuMuaList = document.querySelectorAll('.showThuMua');
-    for (let i = 0; i < thuMuaList.length; i++) {
-        thuMuaList[i].innerHTML = thuMuaELE.value;
+    const thuMuaVjcList = document.querySelectorAll('.showThuMuaVjc');
+    for (let i = 0; i < thuMuaVjcList.length; i++) {
+        thuMuaVjcList[i].innerHTML = thuMuaVjc;
+    }
+
+    const thuMuaVnfList = document.querySelectorAll('.showThuMuaVnf');
+    for (let i = 0; i < thuMuaVnfList.length; i++) {
+        thuMuaVnfList[i].innerHTML = thuMuaVnf;
     }
 
     const kcsList = document.querySelectorAll('.showKCS');
