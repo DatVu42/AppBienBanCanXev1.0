@@ -73,13 +73,13 @@
                     </div>
                     <div class="col">
                         <label for="canVao">Ngày giờ cân vào</label>
-                        <input class="form-control" type="datetime-local" id="canVao" name="canVao">
+                        <input class="form-control" type="datetime-local" step="1" id="canVao" name="canVao">
                         <small hidden id="checkNgayGioVao" class="text-danger">Ngày giờ cân vào không được để
                             trống</small>
                     </div>
                     <div class="col">
                         <label for="canRa">Ngày giờ cân ra</label>
-                        <input class="form-control" type="datetime-local" id="canRa" name="canRa">
+                        <input class="form-control" type="datetime-local" step="1" id="canRa" name="canRa">
                         <small hidden id="checkNgayGioRa" class="text-danger">Ngày giờ cân ra không được để
                             trống</small>
                     </div>
@@ -172,10 +172,10 @@
                                 <tr>
                                     <td class="thutVao">Ngày giờ cân vào: <span class="ngayVao"></span>/<span
                                             class="thangVao"></span>/<span class="namVao"></span> <span
-                                            class="gioVao"></span>:<span class="phutVao"></span></td>
+                                            class="gioVao"></span>:<span class="phutVao"></span>:<span id="giayVao"></span></td>
                                     <td></td>
                                     <td>Ngày giờ cân ra: <span id="ngayRa"></span>/<span id="thangRa"></span>/<span
-                                            id="namRa"></span> <span id="gioRa"></span>:<span id="phutRa"></span></td>
+                                            id="namRa"></span> <span id="gioRa"></span>:<span id="phutRa"></span>:<span id="giayRa"></span></td>
                                 </tr>
                                 <tr>
                                     <td class="thutVao">Trọng lượng xe và hàng: </td>

@@ -14,12 +14,14 @@ let thangCanVao = '';
 let namCanVao = '';
 let gioCanVao = '';
 let phutCanVao = '';
+let giayCanVao = '';
 let canRa = '';
 let ngayCanRa = '';
 let thangCanRa = '';
 let namCanRa = '';
 let gioCanRa = '';
 let phutCanRa = '';
+let giayCanRa = '';
 let tLFull = 0;
 let tLXe = 0;
 let chungLoaiELE = '';
@@ -66,7 +68,7 @@ function getFormValues() {
     namCanVao = dateVao.getFullYear();
     gioCanVao = dateVao.getHours();
     phutCanVao = dateVao.getMinutes();
-    // ngayGioCanVao = new Date(canVao);
+    giayCanVao = dateVao.getSeconds();
 
     var dateRa = new Date(canRa);
     ngayCanRa = dateRa.getDate();
@@ -74,6 +76,7 @@ function getFormValues() {
     namCanRa = dateRa.getFullYear();
     gioCanRa = dateRa.getHours();
     phutCanRa = dateRa.getMinutes();
+    giayCanRa = dateRa.getSeconds();
 
     chucVuELE = document.getElementById('chucVu');
     thuMuaVjcLI = document.getElementById('thuMuaVjcLI');
@@ -250,12 +253,15 @@ function bindingData() {
         namVaoList[i].innerHTML = namCanVao;
     }
 
+    getELE('giayVao').innerHTML = giayCanVao;
+
     // Ngày giờ cân ra
     getELE('ngayRa').innerHTML = ngayCanRa;
     getELE('thangRa').innerHTML = thangCanRa;
     getELE('namRa').innerHTML = namCanRa;
     getELE('gioRa').innerHTML = gioCanRa;
     getELE('phutRa').innerHTML = phutCanRa;
+    getELE('giayRa').innerHTML = giayCanRa;
 
     const trucCaList = document.querySelectorAll('.showTrucCa');
     for (let i = 0; i < trucCaList.length; i++) {
