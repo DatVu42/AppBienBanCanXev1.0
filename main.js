@@ -44,22 +44,21 @@ function getELE(id) {
 }
 
 function getFormValues() {
-    trucCaELE = document.getElementById('trucCa');
+    trucCaELE = getELE('trucCa');
     trucCaText = trucCaELE.options[trucCaELE.selectedIndex].text;
-
-    canXeELE = document.getElementById('can');
+    canXeELE = getELE('can');
     canXeText = canXeELE.options[canXeELE.selectedIndex].text;
-    kcsELE = document.getElementById('kcs');
+    kcsELE = getELE('kcs');
     kcsText = kcsELE.options[kcsELE.selectedIndex].text;
-    bienSoXe = document.getElementById('soXe').value;
-    soPhieu = document.getElementById('soPhieu').value;
-    canVao = document.getElementById('canVao').value;
-    canRa = document.getElementById('canRa').value;
-    tLFull = document.getElementById('tLXeVaHang').value;
-    tLXe = document.getElementById('tLXe').value;
-    chungLoaiELE = document.getElementById('chungLoai');
+    bienSoXe = getELE('soXe').value;
+    soPhieu = getELE('soPhieu').value;
+    canVao = getELE('canVao').value;
+    canRa = getELE('canRa').value;
+    tLFull = getELE('tLXeVaHang').value;
+    tLXe = getELE('tLXe').value;
+    chungLoaiELE = getELE('chungLoai');
     chungLoaiText = chungLoaiELE.options[chungLoaiELE.selectedIndex].text;
-    lyDoELE = document.getElementById('lyDo');
+    lyDoELE = getELE('lyDo');
     lyDoText = lyDoELE.options[lyDoELE.selectedIndex].text;
 
     var dateVao = new Date(canVao);
@@ -78,9 +77,9 @@ function getFormValues() {
     phutCanRa = dateRa.getMinutes();
     giayCanRa = dateRa.getSeconds();
 
-    chucVuELE = document.getElementById('chucVu');
-    thuMuaVjcLI = document.getElementById('thuMuaVjcLI');
-    thuMuaVnfLI = document.getElementById('thuMuaVnfLI');
+    chucVuELE = getELE('chucVu');
+    thuMuaVjcLI = getELE('thuMuaVjcLI');
+    thuMuaVnfLI = getELE('thuMuaVnfLI');
 
     maChungLoai = chungLoaiELE.options[chungLoaiELE.selectedIndex].value;
     timKhuVuc(maChungLoai);
