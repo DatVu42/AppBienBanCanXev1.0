@@ -23,6 +23,7 @@ li {
 @media print {
 
     #formBienBan,
+    #updateInfoBtn,
     h1,
     .modal-header,
     .modal-footer {
@@ -36,5 +37,9 @@ li {
     #noiDung {
         border: none;
         outline: none;
+    }
+
+    #modalBienBan {
+        font-family: Georgia, 'Times New Roman', Times, serif;
     }
 }

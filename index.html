@@ -16,6 +16,9 @@
 <body>
     <div class="container">
         <h1 class="mt-5 text-center">PHẦN MỀM IN BIÊN BẢN CÂN XE</h1>
+        <div class="text-right" id="updateInfoBtn">
+            <button data-toggle="modal" data-target="#modalUpdateInfo">Ver 1.0 - Last update: 20/09/2022</button>
+        </div>
         <form id="formBienBan" name="formBienBan" class="pb-5">
             <fieldset class="border p-3 my-5">
                 <legend class="w-auto">Người lập biên bản</legend>
@@ -53,6 +56,10 @@
                             <option value="qt">Nguyễn Quyết Thịnh</option>
                             <option value="tt">Lê Thế Thông</option>
                             <option value="vd">Vũ Đạt</option>
+                            <option value="vd">Phạm Duy Tiến</option>
+                            <option value="vd">Phạm Có</option>
+                            <option value="vd">Nguyễn Văn Hoàng</option>
+                            <option value="vd">Lê Quốc Phú</option>
                         </select>
                     </div>
                 </div>
@@ -122,11 +129,12 @@
         </form>
 
         <!-- modal Biên bản -->
-        <div class="modal fade" id="modalBienBan" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="false">
+        <div class="modal fade" id="modalBienBan" data-backdrop="static" tabindex="-1"
+            aria-labelledby="exampleModalLabel" aria-hidden="false">
             <div class="modal-dialog modal-xl">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">BienBanCanXe v1.0 - Update: 20/09/2022</h5>
+                        <h5 class="modal-title">BienBanCanXe v1.0</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -149,9 +157,11 @@
                         <ul>
                             <li>Ông: <span class="showTrucCa display-name"></span><span id="chucVu">Trực ca sản
                                     xuất</span></li>
-                            <li id="thuMuaVjcLI">Ông: <span class="showThuMuaVjc display-name"></span><span>Phụ trách thu
+                            <li id="thuMuaVjcLI">Ông: <span class="showThuMuaVjc display-name"></span><span>Phụ trách
+                                    thu
                                     mua VJC</span></li>
-                            <li id="thuMuaVnfLI">Ông: <span class="showThuMuaVnf display-name"></span><span>Phụ trách thu
+                            <li id="thuMuaVnfLI">Ông: <span class="showThuMuaVnf display-name"></span><span>Phụ trách
+                                    thu
                                     mua VNF</span></li>
                             <li>Ông: <span class="showKCS display-name"></span><span>KCS</span></li>
                             <li>Ông: <span class="showCanxe display-name"></span><span>Cân xe</span></li>
@@ -172,10 +182,12 @@
                                 <tr>
                                     <td class="thutVao">Ngày giờ cân vào: <span class="ngayVao"></span>/<span
                                             class="thangVao"></span>/<span class="namVao"></span> <span
-                                            class="gioVao"></span>:<span class="phutVao"></span>:<span id="giayVao"></span></td>
+                                            class="gioVao"></span>:<span class="phutVao"></span>:<span
+                                            id="giayVao"></span></td>
                                     <td></td>
                                     <td>Ngày giờ cân ra: <span id="ngayRa"></span>/<span id="thangRa"></span>/<span
-                                            id="namRa"></span> <span id="gioRa"></span>:<span id="phutRa"></span>:<span id="giayRa"></span></td>
+                                            id="namRa"></span> <span id="gioRa"></span>:<span id="phutRa"></span>:<span
+                                            id="giayRa"></span></td>
                                 </tr>
                                 <tr>
                                     <td class="thutVao">Trọng lượng xe và hàng: </td>
@@ -223,6 +235,31 @@
                 </div>
             </div>
         </div>
+
+        <!-- modal Thông tin cập nhật -->
+        <div class="modal fade" id="modalUpdateInfo" data-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">BienBanCanXe v1.0</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p><b>Bản cập nhật ngày 21/09/2022</b></p>
+                        <ul>
+                            <li>Thay đổi font chữ khi in ra giấy.</li>
+                            <li>Bổ sung NL vào KCS</li>
+                        </ul>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
     <!-- Bootstrap JS -->
