@@ -256,9 +256,21 @@ function bindingData() {
     getELE('giayVao').innerHTML = giayCanVao;
 
     // Ngày giờ cân ra
-    getELE('ngayRa').innerHTML = ngayCanRa;
-    getELE('thangRa').innerHTML = thangCanRa;
-    getELE('namRa').innerHTML = namCanRa;
+    const ngayRaList = document.querySelectorAll('.ngayRa');
+    for (let i = 0; i < ngayRaList.length; i++) {
+        ngayRaList[i].innerHTML = ngayCanRa;
+    }
+
+    const thangRaList = document.querySelectorAll('.thangRa');
+    for (let i = 0; i < thangRaList.length; i++) {
+        thangRaList[i].innerHTML = thangCanRa;
+    }
+
+    const namRaList = document.querySelectorAll('.namRa');
+    for (let i = 0; i < namRaList.length; i++) {
+        namRaList[i].innerHTML = namCanRa;
+    }
+
     getELE('gioRa').innerHTML = gioCanRa;
     getELE('phutRa').innerHTML = phutCanRa;
     getELE('giayRa').innerHTML = giayCanRa;
