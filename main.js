@@ -62,20 +62,20 @@ function getFormValues() {
     lyDoText = lyDoELE.options[lyDoELE.selectedIndex].text;
 
     var dateVao = new Date(canVao);
-    ngayCanVao = dateVao.getDate();
-    thangCanVao = dateVao.getMonth() + 1;
+    ngayCanVao = ('0' + dateVao.getDate()).slice(-2) ;
+    thangCanVao = ('0' + (dateVao.getMonth() + 1)).slice(-2) ;
     namCanVao = dateVao.getFullYear();
-    gioCanVao = dateVao.getHours();
-    phutCanVao = dateVao.getMinutes();
-    giayCanVao = dateVao.getSeconds();
+    gioCanVao = ('0' + dateVao.getHours()).slice(-2);
+    phutCanVao = ('0' + dateVao.getMinutes()).slice(-2);
+    giayCanVao = ('0' + dateVao.getSeconds()).slice(-2);
 
     var dateRa = new Date(canRa);
-    ngayCanRa = dateRa.getDate();
-    thangCanRa = dateRa.getMonth() + 1;
+    ngayCanRa = ('0' + dateRa.getDate()).slice(-2);
+    thangCanRa = ('0' + (dateRa.getMonth() + 1)).slice(-2);
     namCanRa = dateRa.getFullYear();
-    gioCanRa = dateRa.getHours();
-    phutCanRa = dateRa.getMinutes();
-    giayCanRa = dateRa.getSeconds();
+    gioCanRa = ('0' + dateRa.getHours()).slice(-2);
+    phutCanRa = ('0' + dateRa.getMinutes()).slice(-2);
+    giayCanRa = ('0' + dateRa.getSeconds()).slice(-2);
 
     chucVuELE = getELE('chucVu');
     thuMuaVjcLI = getELE('thuMuaVjcLI');
