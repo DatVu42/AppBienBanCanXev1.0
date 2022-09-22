@@ -20,6 +20,10 @@ li {
     width: 20%;
 }
 
+.w-30 {
+    width: 30%;
+}
+
 @media print {
 
     #formBienBan,

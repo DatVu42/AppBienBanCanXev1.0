@@ -147,13 +147,19 @@ function checkTrucCa() {
     getFormValues();
 
     if (trucCaELE.value === 'lct') {
-        chucVuELE.innerHTML = 'Trực ca sản xuất & Phụ trách thu mua VJC';
+        chucVuELE.innerHTML = 'Trực ca sản xuất & Phụ trách thu mua';
         thuMuaVjcLI.setAttribute('hidden', '');
-        getELE('trucCaFooterTitle').innerHTML = 'Trực ca SX & PT thu mua VJC';
+
+        getELE('trucCaFooterTitle').innerHTML = 'Trực ca SX & PT thu mua';
         getELE('thuMuaVjcFooterTitle').setAttribute('hidden', '');
         getELE('thuMuaVjcFooterName').setAttribute('hidden', '');
-        // getELE('trucCaFooterTren').classList.add('w-50');
-        // getELE('trucCaFooterDuoi').classList.add('w-50');
+
+        getELE('trucCaFooterTitle').classList.add('w-30');
+        getELE('kcsFooterTitle').classList.add('w-30');
+        getELE('canFooterTitle').classList.add('w-30');
+        getELE('trucCaFooterName').classList.add('w-30');
+        getELE('kcsFooterName').classList.add('w-30');
+        getELE('canFooterName').classList.add('w-30');
 
     } else {
         chucVuELE.innerHTML = 'Trực ca sản xuất';
@@ -161,8 +167,13 @@ function checkTrucCa() {
         getELE('trucCaFooterTitle').innerHTML = 'Trực ca sản xuất';
         getELE('thuMuaVjcFooterTitle').removeAttribute('hidden');
         getELE('thuMuaVjcFooterName').removeAttribute('hidden');
-        // getELE('trucCaFooterTren').classList.remove('w-50');
-        // getELE('trucCaFooterDuoi').classList.remove('w-50');
+
+        getELE('trucCaFooterTitle').classList.remove('w-30');
+        getELE('kcsFooterTitle').classList.remove('w-30');
+        getELE('canFooterTitle').classList.remove('w-30');
+        getELE('trucCaFooterName').classList.remove('w-30');
+        getELE('kcsFooterName').classList.remove('w-30');
+        getELE('canFooterName').classList.remove('w-30');
     }
 }
 checkTrucCa();
