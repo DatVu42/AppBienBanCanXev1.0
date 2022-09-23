@@ -147,10 +147,10 @@ function checkTrucCa() {
     getFormValues();
 
     if (trucCaELE.value === 'lct') {
-        chucVuELE.innerHTML = 'Trực ca sản xuất & Phụ trách thu mua';
+        chucVuELE.innerHTML = 'Trực ca sản xuất & Phụ trách thu mua VJC';
         thuMuaVjcLI.setAttribute('hidden', '');
 
-        getELE('trucCaFooterTitle').innerHTML = 'Trực ca SX & PT thu mua';
+        getELE('trucCaFooterTitle').innerHTML = 'Trực ca SX & PT thu mua VJC';
         getELE('thuMuaVjcFooterTitle').setAttribute('hidden', '');
         getELE('thuMuaVjcFooterName').setAttribute('hidden', '');
 
