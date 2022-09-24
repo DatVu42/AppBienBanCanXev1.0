@@ -145,40 +145,71 @@ function validationForm() {
     getELE('xemBienBan').addEventListener('click', bindingData);
 }
 
-function checkTrucCa() {
+function handleTrucCa() {
     getFormValues();
 
     if (trucCaELE.value === 'lct') {
-        chucVuELE.innerHTML = 'Trực ca sản xuất & Phụ trách thu mua VJC';
+        getELE('chucVu').innerHTML = 'Trực ca sản xuất & Phụ trách thu mua VJC';
         thuMuaVjcLI.setAttribute('hidden', '');
 
         getELE('trucCaFooterTitle').innerHTML = 'Trực ca SX & PT thu mua VJC';
         getELE('thuMuaVjcFooterTitle').setAttribute('hidden', '');
         getELE('thuMuaVjcFooterName').setAttribute('hidden', '');
 
-        getELE('trucCaFooterTitle').classList.add('w-30');
-        getELE('kcsFooterTitle').classList.add('w-30');
-        getELE('canFooterTitle').classList.add('w-30');
-        getELE('trucCaFooterName').classList.add('w-30');
-        getELE('kcsFooterName').classList.add('w-30');
-        getELE('canFooterName').classList.add('w-30');
+        getELE('trucCaFooterTitle').classList.add('w-26');
+        getELE('kcsFooterTitle').classList.add('w-26');
+        getELE('canFooterTitle').classList.add('w-26');
+        getELE('trucCaFooterName').classList.add('w-26');
+        getELE('kcsFooterName').classList.add('w-26');
+        getELE('canFooterName').classList.add('w-26');
 
     } else {
-        chucVuELE.innerHTML = 'Trực ca sản xuất';
+        getELE('chucVu').innerHTML = 'Trực ca sản xuất';
         thuMuaVjcLI.removeAttribute('hidden');
         getELE('trucCaFooterTitle').innerHTML = 'Trực ca sản xuất';
         getELE('thuMuaVjcFooterTitle').removeAttribute('hidden');
         getELE('thuMuaVjcFooterName').removeAttribute('hidden');
 
-        getELE('trucCaFooterTitle').classList.remove('w-30');
-        getELE('kcsFooterTitle').classList.remove('w-30');
-        getELE('canFooterTitle').classList.remove('w-30');
-        getELE('trucCaFooterName').classList.remove('w-30');
-        getELE('kcsFooterName').classList.remove('w-30');
-        getELE('canFooterName').classList.remove('w-30');
+        getELE('trucCaFooterTitle').classList.remove('w-26');
+        getELE('kcsFooterTitle').classList.remove('w-26');
+        getELE('canFooterTitle').classList.remove('w-26');
+        getELE('trucCaFooterName').classList.remove('w-26');
+        getELE('kcsFooterName').classList.remove('w-26');
+        getELE('canFooterName').classList.remove('w-26');
+    }
+
+    if (trucCaELE.value === 'nl') {
+        getELE('kcs').setAttribute('disabled', '');
+        getELE('chucVu').innerHTML = 'Trực ca & KCS';
+        getELE('kcsLI').setAttribute('hidden', '');
+        getELE('trucCaFooterTitle').innerHTML = 'Trực ca & KCS';
+        getELE('kcsFooterTitle').setAttribute('hidden', '');
+        getELE('kcsFooterName').setAttribute('hidden', '');
+        getELE('canFooterTitle').classList.add('w-25');
+        getELE('canFooterName').classList.add('w-25');
+
+    } else {
+        getELE('kcs').removeAttribute('disabled');
+        getELE('kcsLI').removeAttribute('hidden');
+        getELE('kcsFooterTitle').removeAttribute('hidden');
+        getELE('kcsFooterName').removeAttribute('hidden');
+        getELE('canFooterTitle').classList.remove('w-25');
+        getELE('canFooterName').classList.remove('w-25')
+    }
+
+    if (chungLoaiELE.value === 'kdx') {
+        getELE('kcsFooterTitle').classList.add('w-24');
+        getELE('kcsFooterName').classList.add('w-24');
+        getELE('canFooterTitle').classList.add('w-24');
+        getELE('canFooterName').classList.add('w-24');
+    } else {
+        getELE('kcsFooterTitle').classList.remove('w-24');
+        getELE('kcsFooterName').classList.remove('w-24');
+        getELE('canFooterTitle').classList.remove('w-24');
+        getELE('canFooterName').classList.remove('w-24');
     }
 }
-checkTrucCa();
+handleTrucCa();
 
 function toogleThuMuaVnf() {
     getFormValues();
@@ -228,7 +259,7 @@ function bindingData() {
     getFormValues();
     toogleThuMuaVnf();
     validationForm();
-    console.log('chạy hàm này');
+
     const soXeList = document.querySelectorAll('.soXe');
     for (let i = 0; i < soXeList.length; i++) {
         soXeList[i].innerHTML = bienSoXe;

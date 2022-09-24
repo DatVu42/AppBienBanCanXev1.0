@@ -29,15 +29,15 @@
                 <div class="row">
                     <div class="col">
                         <label for="trucCa">Trực ca sản xuất</label>
-                        <select onchange="checkTrucCa()" class="form-control" id="trucCa">
+                        <select onchange="handleTrucCa()" class="form-control" id="trucCa">
                             <option value="lct">Lê Công Tùng</option>
                             <option value="nqc">Nguyễn Quốc Công</option>
                             <option value="ntt">Nguyễn Tấn Trung</option>
                             <option value="hhc">Hứa Huy Cường</option>
-                            <option value="pdt">Phạm Duy Tiến</option>
-                            <option value="pc">Phạm Có</option>
-                            <option value="nvh">Nguyễn Văn Hoàng</option>
-                            <option value="lqp">Lê Quốc Phú</option>
+                            <option value="nl">Phạm Duy Tiến</option>
+                            <option value="nl">Phạm Có</option>
+                            <option value="nl">Nguyễn Văn Hoàng</option>
+                            <option value="nl">Lê Quốc Phú</option>
                         </select>
                     </div>
                     <div class="col">
@@ -176,7 +176,7 @@
                             <li id="thuMuaVnfLI">Ông: <span class="showThuMuaVnf display-name"></span><span>Phụ trách
                                     thu
                                     mua VNF</span></li>
-                            <li>Ông: <span class="showKCS display-name"></span><span>KCS</span></li>
+                            <li id="kcsLI">Ông: <span class="showKCS display-name"></span><span>KCS</span></li>
                             <li>Ông: <span class="showCanxe display-name"></span><span>Cân xe</span></li>
                         </ul>
                         <p class="thutVao">Vào ngày <span class="ngayVao"></span>/<span class="thangVao"></span>/<span
@@ -263,11 +263,12 @@
                     <div class="modal-body">
                         <p><b>Những cập nhật mới nhất</b></p>
                         <ul>
-                            <li>Thiết lập mặc định ngày giờ hiện tại cho Ngày giờ cân vào và cân ra</li>
-                            <li>Gợi ý số xe lập biên bản khi gõ vào ô Biển số xe</li>
+                            <li>Xử lý trường hợp Nguyên liệu làm trực ca</li>
+                            <li>Thiết lập mặc định ngày giờ hiện tại cho Ngày giờ cân vào và cân ra.</li>
+                            <li>Gợi ý số xe lập biên bản khi gõ vào ô Biển số xe.</li>
                             <li>Hiển thị ngày giờ theo định dạng 2 chữ số.</li>
                             <li>Thay đổi font chữ khi in ra giấy.</li>
-                            <li>Bổ sung NL vào KCS.</li>
+                            <li>Bổ sung Nguyên liệu vào KCS.</li>
                             <li>Sửa lỗi hiển thị ngày lập biên bản theo ngày cân ra.</li>
                         </ul>
                     </div>

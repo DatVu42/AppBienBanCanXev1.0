@@ -20,8 +20,12 @@ li {
     width: 20%;
 }
 
-.w-30 {
-    width: 30%;
+.w-24 {
+    width: 24%;
+}
+
+.w-26 {
+    width: 26%;
 }
 
 @media print {
