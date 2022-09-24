@@ -268,21 +268,6 @@ function bindingData() {
     getELE('giayVao').innerHTML = giayCanVao;
 
     // Ngày giờ cân ra
-    // const ngayRaList = document.querySelectorAll('.ngayRa');
-    // for (let i = 0; i < ngayRaList.length; i++) {
-    //     ngayRaList[i].innerHTML = ngayCanRa;
-    // }
-
-    // const thangRaList = document.querySelectorAll('.thangRa');
-    // for (let i = 0; i < thangRaList.length; i++) {
-    //     thangRaList[i].innerHTML = thangCanRa;
-    // }
-
-    // const namRaList = document.querySelectorAll('.namRa');
-    // for (let i = 0; i < namRaList.length; i++) {
-    //     namRaList[i].innerHTML = namCanRa;
-    // }
-
     getELE('ngayRa').innerHTML = ngayCanRa;
     getELE('thangRa').innerHTML = thangCanRa;
     getELE('namRa').innerHTML = namCanRa;
@@ -409,5 +394,21 @@ function autocomplete(inp, arr) {
         closeAllLists(e.target);
     });
 }
-
 autocomplete(document.getElementById("soXe"), cars);
+
+function bindingDefaultDate() {
+    var date = new Date();
+    var yearNow = date.getFullYear();
+    var monthNow = ('0' + (date.getMonth() + 1)).slice(-2);
+    var dateNow = ('0' + date.getDate()).slice(-2);
+    var hoursNow = ('0' + date.getHours()).slice(-2);
+    var minutesNow = ('0' + date.getMinutes()).slice(-2);
+    var secondsNow = ('0' + date.getSeconds()).slice(-2);
+
+    var fullDateNow = `${yearNow}-${monthNow}-${dateNow}T${hoursNow}:${minutesNow}:${secondsNow}`;
+
+    getELE('canVao').value = fullDateNow;
+    getELE('canRa').value = fullDateNow;
+}
+
+bindingDefaultDate()
