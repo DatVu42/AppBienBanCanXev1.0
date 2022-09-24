@@ -52,7 +52,7 @@ function getFormValues() {
     canXeText = canXeELE.options[canXeELE.selectedIndex].text;
     kcsELE = getELE('kcs');
     kcsText = kcsELE.options[kcsELE.selectedIndex].text;
-    bienSoXe = getELE('soXe').value;
+    bienSoXe = (getELE('soXe').value).toUpperCase();
     soPhieu = getELE('soPhieu').value;
     canVao = getELE('canVao').value;
     canRa = getELE('canRa').value;
@@ -197,7 +197,7 @@ function handleTrucCa() {
         getELE('canFooterName').classList.remove('w-25')
     }
 
-    if (chungLoaiELE.value === 'kdx') {
+    if (chungLoaiELE.value === 'kdx' || canXeELE.value === 'nxtt' || kcsELE.value === 'nxtt') {
         getELE('kcsFooterTitle').classList.add('w-24');
         getELE('kcsFooterName').classList.add('w-24');
         getELE('canFooterTitle').classList.add('w-24');
@@ -209,7 +209,6 @@ function handleTrucCa() {
         getELE('canFooterName').classList.remove('w-24');
     }
 }
-handleTrucCa();
 
 function toogleThuMuaVnf() {
     getFormValues();
@@ -257,6 +256,7 @@ function timLyDo(maLyDo, maChungLoai) {
 
 function bindingData() {
     getFormValues();
+    handleTrucCa();
     toogleThuMuaVnf();
     validationForm();
 
