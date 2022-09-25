@@ -81,14 +81,14 @@
                         <!-- <input type="text" class="form-control" id="soXe" name="soXe" placeholder="Nhập biển số xe"> -->
 
                         <div class="autocomplete">
-                            <input id="soXe" class="form-control" type="text" name="soXe" placeholder="Nhập biển số xe">
+                            <input onchange="upperCaseCarNumber()" id="soXe" class="form-control" type="text" name="soXe" placeholder="Nhập biển số xe">
                         </div>
 
                         <small hidden id="checkSoXe" class="text-danger">Biển số xe không được để trống</small>
                     </div>
                     <div class="col">
                         <label for="soPhieu">Số phiếu</label>
-                        <input type="number" class="form-control" id="soPhieu" placeholder="Nhập số phiếu">
+                        <input type="text" maxlength="4" class="form-control" id="soPhieu" placeholder="Nhập số phiếu" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
                         <small hidden id="checkSoPhieu" class="text-danger">Số phiếu không được để trống</small>
                     </div>
                     <div class="col">
@@ -107,14 +107,14 @@
                 <div class="row mt-4">
                     <div class="col">
                         <label for="tLXeVaHang">TL xe và hàng (kg)</label>
-                        <input type="number" class="form-control" id="tLXeVaHang"
-                            placeholder="Nhập trọng lượng xe và hàng">
+                        <input type="text" maxlength="8" class="form-control" id="tLXeVaHang"
+                            placeholder="Nhập trọng lượng xe và hàng" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
                         <small hidden id="checkTLFull" class="text-danger">Trọng lượng xe và hàng không được để
                             trống</small>
                     </div>
                     <div class="col">
                         <label for="tLXe">Trọng lượng xe (kg)</label>
-                        <input type="number" class="form-control" id="tLXe" placeholder="Nhập trọng lượng xe">
+                        <input type="text" maxlength="8" class="form-control" id="tLXe" placeholder="Nhập trọng lượng xe" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
                         <small hidden id="checkTLXe" class="text-danger">Trọng lượng xe không được để trống</small>
                     </div>
                     <div class="col">

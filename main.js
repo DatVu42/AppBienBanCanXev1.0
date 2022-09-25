@@ -254,6 +254,10 @@ function timLyDo(maLyDo, maChungLoai) {
     }
 }
 
+function upperCaseCarNumber() {
+    getELE('soXe').value = (getELE('soXe').value).trim().toUpperCase()
+}
+
 function bindingData() {
     getFormValues();
     handleTrucCa();
