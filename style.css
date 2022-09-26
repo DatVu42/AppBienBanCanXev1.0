@@ -12,9 +12,9 @@
     width: 300px;
 }
 
-li {
+/* li {
     list-style-type: disc;
-}
+} */
 
 .w-20 {
     width: 20%;
@@ -86,4 +86,9 @@ li {
     /*when navigating through the items using the arrow keys:*/
     background-color: DodgerBlue !important;
     color: #ffffff;
+}
+
+/* Update info style */
+#ulUpdateInfo {
+    list-style-type: none;
 }
