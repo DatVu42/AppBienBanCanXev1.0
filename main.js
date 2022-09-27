@@ -445,5 +445,4 @@ function bindingDefaultDate() {
     getELE('canVao').value = fullDateNow;
     getELE('canRa').value = fullDateNow;
 }
-
-bindingDefaultDate()
+bindingDefaultDate();
