@@ -218,9 +218,9 @@ function toogleThuMuaVnf() {
         getELE('thuMuaVnfFooterTitle').setAttribute('hidden', '');
         getELE('thuMuaVnfFooterName').setAttribute('hidden', '');
     } else {
-        // getELE('thuMuaVnfLI').removeAttribute('hidden')
-        // getELE('thuMuaVnfFooterTitle').removeAttribute('hidden');
-        // getELE('thuMuaVnfFooterName').removeAttribute('hidden');
+        getELE('thuMuaVnfLI').removeAttribute('hidden')
+        getELE('thuMuaVnfFooterTitle').removeAttribute('hidden');
+        getELE('thuMuaVnfFooterName').removeAttribute('hidden');
     }
 }
 
